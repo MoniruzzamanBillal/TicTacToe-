@@ -43,7 +43,6 @@ cell.forEach((element) => {
       }
 
       if (checkWin(turn)) {
-        console.log(`${turn} wins`);
 
         box.classList.add("remove");
         secondScreen.classList.add("active1");
@@ -51,7 +50,11 @@ cell.forEach((element) => {
         message.innerText = turn + " wins";
       } else if (checkDraw()) {
         console.log("Draw");
-        message.innerText = turn + " wins";
+        box.classList.add("remove");
+        secondScreen.classList.add("active1");
+        secondScreen.classList.remove("remove");
+
+        message.innerText =" Draw";
       }
     },
     { once: true }
