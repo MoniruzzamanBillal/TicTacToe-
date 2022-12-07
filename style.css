@@ -1,39 +1,36 @@
-
-
-*,*::after,*::before{
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
 
-:root{
+:root {
   --cell-size: 100px;
-  --border:1px solid black;
-  --mark-size:calc(var(--cell-size) * .9);
+  --border: 1px solid black;
+  --mark-size: calc(var(--cell-size) * 0.9);
 }
 
-body{
+body {
   margin: 0;
   padding: 0;
 }
 
-.container{
+.container {
   max-width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: var(--border);
 }
 
-
-.box{
-  
+.box {
   display: grid;
   /* justify-content: center; */
   /* align-items: center; */
-  grid-template-columns: repeat(3,auto);
+  grid-template-columns: repeat(3, auto);
 }
 
-.cell{
+.cell {
   width: var(--cell-size);
   height: var(--cell-size);
   border: var(--border);
@@ -44,98 +41,147 @@ body{
   cursor: pointer;
 }
 
-
-.cell.x ,
-.cell.o{
+.cell.x,
+.cell.o {
   cursor: not-allowed;
 }
 
 .cell.x::before,
 .cell.x::after,
-.cell.o::before{
+.cell.o::before {
   background-color: rgb(0, 0, 0);
 }
 
-.cell.o::after{
+.cell.o::after {
   background-color: white;
 }
 
 .box.x .cell:not(.x):not(.o):hover::before,
-.box.x .cell:not(.x):not(.o):hover::after{
+.box.x .cell:not(.x):not(.o):hover::after {
   background-color: gray;
 }
 
-.box.o .cell:not(.x):not(.o):hover::before{
+.box.o .cell:not(.x):not(.o):hover::before {
   background-color: rgba(0, 0, 0, 0.437);
 }
-.box.o .cell:not(.x):not(.o):hover::after{
+.box.o .cell:not(.x):not(.o):hover::after {
   background-color: lightgray;
 }
 
 .cell.x::before,
 .cell.x::after,
 .box.x .cell:not(.x):not(.o):hover::before,
-.box.x .cell:not(.x):not(.o):hover::after{
-  content: '';
+.box.x .cell:not(.x):not(.o):hover::after {
+  content: "";
   position: absolute;
-  width: calc(var(--mark-size) * .15);
+  width: calc(var(--mark-size) * 0.15);
   height: var(--mark-size);
 }
 
 .cell.x::before,
-.box.x .cell:hover::before{
+.box.x .cell:hover::before {
   transform: rotate(45deg);
 }
 .cell.x::after,
-.box.x .cell:hover::after{
+.box.x .cell:hover::after {
   transform: rotate(-45deg);
 }
-
 
 .cell.o::before,
 .cell.o::after,
 .box.o .cell:not(.x):not(.o):hover::before,
-.box.o .cell:not(.x):not(.o):hover::after{
-  content: '';
+.box.o .cell:not(.x):not(.o):hover::after {
+  content: "";
   position: absolute;
   border-radius: 50%;
 }
 
 .cell.o::before,
-.box.o .cell:not(.x):not(.o):hover::before{
+.box.o .cell:not(.x):not(.o):hover::before {
   height: var(--mark-size);
   width: var(--mark-size);
-  
 }
 
 .cell.o::after,
-.box.o .cell:not(.x):not(.o):hover::after{
-  height: calc(var(--mark-size) * .7);
-  width: calc(var(--mark-size) * .7);
-  
+.box.o .cell:not(.x):not(.o):hover::after {
+  height: calc(var(--mark-size) * 0.7);
+  width: calc(var(--mark-size) * 0.7);
 }
-
 
 .cell:nth-child(1),
 .cell:nth-child(2),
-.cell:nth-child(3){
+.cell:nth-child(3) {
   border-top: none;
 }
 
 .cell:nth-child(7),
 .cell:nth-child(8),
-.cell:nth-child(9){
+.cell:nth-child(9) {
   border-bottom: none;
 }
 
 .cell:nth-child(1),
 .cell:nth-child(4),
-.cell:nth-child(7){
+.cell:nth-child(7) {
   border-left: none;
 }
 
 .cell:nth-child(3),
 .cell:nth-child(6),
-.cell:nth-child(9){
+.cell:nth-child(9) {
   border-right: none;
+}
+
+.secondScreen {
+  background-color: red;
+  border: var(--border);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.secondScreen .message {
+  background-color: rgb(232, 251, 27);
+  border: var(--border);
+  padding: 30px;
+  width: 40%;
+  text-align: center;
+}
+
+.secondScreen .message h1 {
+  font-size: 98px;
+}
+
+.secondScreen .bt .btn {
+  background-color: rgb(28, 242, 231);
+  margin-top: 40px;
+  border-radius: 8px;
+
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.secondScreen .bt .btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.secondScreen .bt .btn:active {
+  transform: scale(0.98);
+}
+
+.active1 {
+  display: flex;
+}
+
+.active2 {
+  display: grid;
+}
+
+.remove {
+  display: none;
 }
